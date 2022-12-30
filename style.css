@@ -264,6 +264,13 @@ footer {
 	.ttserv {
 		width: 90%;
 	}
+	.under {
+		display: none;
+	}
+
+	.desc p:nth-child(2) {
+		padding-bottom: 5px;
+	}
 }
 
 @media (max-width: 650px) {
@@ -278,5 +285,21 @@ footer {
 
 	.logo, .test {
 		display: none;
+	}
+}
+
+
+@media (max-width: 450px) {
+	.services1 span, .services2 span {
+		text-align: center;
+	}
+	.ttserv {
+		flex-direction: column;
+	}
+	.box3 .text {
+		width: 90vw;
+	}
+	.image img {
+		width: 80vw;
 	}
 }
