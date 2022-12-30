@@ -1,22 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap");
+
 *,
-body {
+::before,
+::after {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
 }
-.content {
+
+html,
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.contenaire {
+	background: rgba(0, 168, 240, 0.222);
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	grid-template-rows: auto 1fr auto;
+}
+nav {
+	background: linear-gradient(45deg, springgreen, navy, navy, springgreen);
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: blue;
-  width: 100%;
-  height: 100vh;
+	color: white;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+nav p:first-child {
+	font-family: "Lobster Two", cursive;
+	font-size: 30px;
+	color: rgb(221, 84, 107);
+}
+nav a {
+	color: #222;
+}
+.content {
+	padding: 30px 20px;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas:
+		"box1 box2"
+		"box3 box3"
+		"box4 box4";
+	gap: 10px;
+
+	flex-grow: 1;
 }
 
-.content p {
+.box1,
+.box2,
+.box3 {
+	border-radius: 10px;
+	background-color: white;
+}
+
+.box1 {
+	grid-area: box1;
+	padding: 20px;
+}
+.box1 p:first-child,
+.box2 p:first-child {
+	padding-bottom: 5px;
+	text-align: center;
+	color: green;
+	font-size: 1rem;
+}
+.box1 p:nth-child(2),
+.box2 p:nth-child(2) {
+	text-align: justify;
+}
+.box2 p:nth-child(3) {
+	padding: 10px 0;
+	text-align: center;
+}
+.box2 {
+	grid-area: box2;
+	padding: 20px;
+}
+.box3 {
+	grid-area: box3;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-template-areas: "img text";
+	grid-gap: 10px;
+	background: rgb(198 236 252);
+}
+
+.box3 .image {
+	grid-area: img;
+	padding: 15px;
+}
+.box3 .text {
+	grid-area: text;
+	border: 1px solid navy;
+	border-radius: 10px;
+}
+.image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.image img {
+	height: 230px;
+	border-radius: 30px;
+}
+
+.box3 p {
+	padding-bottom: 10px;
+	color: navy;
+	font-size: 16px;
+	text-align: center;
+}
+
+.box4 {
+	grid-area: box4;
+	display: flex;
+	gap: 20px;
+}
+
+.carte,
+.text {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.adresse {
+	border: 1px solid black;
+	border-radius: 50%;
+	background-color: white;
+}
+.text h2 {
+	text-align: center;
+	color: navy;
+	padding-bottom: 10px;
+	font-size: 19px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.ttserv {
+	overflow: hidden;
+	margin: 0 auto;
+	display: flex;
+	width: 500px;
+	justify-content: space-evenly;
+	background-color: navy;
+	border-radius: 10px;
+	padding: 2%;
 	color: white;
-	text-transform: uppercase;
+}
+
+.services1,
+.services2 {
+	display: flex;
+	flex-direction: column;
+}
+.services1 span,
+.services2 span {
+	line-height: 25px;
+}
+.services2 span {
+	text-align: right;
+}
+
+.carte .map {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.adresse p {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 25px;
+}
+
+footer {
+	background: #f1f1f1;
+	width: 100%;
+
 	font-size: 20px;
-	font-weight: bold;
+	text-align: center;
+}
+@media (max-width: 1060px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.box3 {
+		grid-area: box3;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr;
+		grid-template-areas:
+			"img"
+			"text";
+		grid-gap: 10px;
+	}
+	.box3 .text {
+		padding: 15px;
+		background-color: white;
+	}
+	.box4 {
+		flex-direction: column;
+	}
+	.box4 .carte {
+		height: 350px;
+	}
+	.box4 .adresse {
+		height: 300px;
+	}
+	.image img {
+		height: 250px;
+	}
+	.ttserv {
+		width: 90%;
+	}
 }
