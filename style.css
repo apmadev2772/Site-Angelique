@@ -265,3 +265,18 @@ footer {
 		width: 90%;
 	}
 }
+
+@media (max-width: 650px) {
+	nav {
+
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+		"desc";
+	
+	
+	}
+
+	.logo, .test {
+		display: none;
+	}
+}
